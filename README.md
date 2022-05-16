@@ -10,6 +10,8 @@ _______________
 - AdvertSingleManagement Component - for updating data related to article, for avoiding duplication of validation logic for ArticleEdit & ArticleCreate (both components require validation for title & description)
 
 
+### Create .env.local file (see example .env.local.example)
+
 ## Project setup
 
 ```
@@ -26,7 +28,3 @@ yarn serve
 yarn build
 ```
 
-### Create .env.local file (see example .env.local.example)
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

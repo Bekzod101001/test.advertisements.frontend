@@ -1,28 +1,43 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+
+  <v-app>
+    <v-progress-linear
+        indeterminate
+        v-if="!loaded"
+    />
+    <div
+        class="fill-height"
+        v-else
+    >
+      <Header/>
+      <Navbar/>
+      <v-main>
+        <div class="pa-8">
+          <router-view/>
+        </div>
+      </v-main>
+    </div>
+
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "@/components/layouts/Header";
+import Navbar from "@/components/layouts/Navbar";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: "App",
+  data: () => ({
+    loaded: false
+  }),
+  components: {Navbar, Header},
+  mounted() {
+    this.$store.dispatch('auth/getAuthUser')
+      .finally(() => {
+        this.loaded = true;
+      });
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style lang="scss" src="./assets/app.scss"/>

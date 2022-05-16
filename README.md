@@ -1,4 +1,4 @@
-# Test Task: Adverts
+# Test Task: Adverts FrontEnd
 
 - All requests stored by modules in "api" folder
 - UI components: Vuetify
@@ -11,6 +11,7 @@ _______________
 
 
 ## Project setup
+
 ```
 yarn install
 ```
@@ -25,10 +26,7 @@ yarn serve
 yarn build
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
+### Create .env.local file (see example .env.local.example)
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
